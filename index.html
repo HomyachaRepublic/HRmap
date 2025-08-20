@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zoom & Pan SVG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Zoom & Pan SVG</h1>
+    <div class="stage" id="stage" aria-label="SVG viewer" role="region">
+      <!-- The single SVG on the page -->
+      <svg id="viewport" tabindex="0" aria-label="Interactive SVG"
+           xmlns="http://www.w3.org/2000/svg"
+           width="100%" height="100%" viewBox="0 0 1000 600">
+        <!-- We transform this group (scale + translate) -->
+        <g id="layer" transform="matrix(1 0 0 1 0 0)">
+          <!-- ↓↓↓ Replace everything inside this group with *your* SVG artwork if you want -->
+          <!-- Demo artwork: a grid + a few shapes so you can test zoom/pan -->
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ccc" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#grid)"/>
+          <rect x="100" y="100" width="300" height="200" rx="16" ry="16" fill="#e6f2ff" stroke="#3a7" stroke-width="4"/>
+          <circle cx="650" cy="300" r="120" fill="#ffe9cc" stroke="#c85" stroke-width="6"/>
+          <text x="500" y="560" text-anchor="middle" font-size="36" font-family="system-ui, sans-serif">
+            Try: wheel to zoom, drag to pan, double-click to reset
+          </text>
+          <!-- ↑↑↑ End demo artwork -->
+        </g>
+      </svg>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
